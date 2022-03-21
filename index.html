@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+
+    <body>
+      <div class="pokedex" id="app">
+        <div class="container">
+          <div class="container">
+            <div class="columns">
+              <div class="pokemon column">
+                <pokemon-card :pokemon="pokemon" class="pokemon__card">
+                  <div class="card">
+                    <div class="card-image">
+                      <div class="id2">
+                        <p>ID: {{id}}</p>
+                      </div>
+                      <div class="card-image-container">
+                        <!-- <img :src="'http://static.pokemonpets.com/images/monsters-images-800-800/' + getPokemon.imageTag"/>-->
+                        <img v-bind:src="picture" alt="profile" class="img_c" id="pokeImg">
+                      </div>
+                    </div>
+                    <div class="card-content">
+                      <div class="main">
+                        <!-- <div class="title has-text-white">{{ getPokemon.name }}</div> -->
+                        <div class="title">{{pokeNamee}}</div>
+                        <!-- <div class="hp">hp {{ getPokemon.hp }}</div> -->
+                        <div class="meter nostripes" :class="theme">
+                        </div>
+                        <div class="hp">{{hp}}</div>
+                      </div>
+                      <div class="row ban">
+                        <div class="col-4 ">{{tipo}}<br><span class="span_t" :class="theme">Tipo</span></div>
+                        <div class="col-4 center-column">{{peso}}<br><span class="span_t" :class="theme">Peso</span></div>
+                        <div class="col-4">{{altura}}<br><span class="span_t" :class="theme">Altura</span></div>
+                        <!-- <div class="column has-text-centered">{{ getPokemon.type }}<br><span class="tag">Type</span></div> -->
+                        <!-- <div class="column has-text-centered center-column">{{ getPokemon.weight }} lbs<br><span class="tag">Weight</span></div> -->
+                        <!-- <div class="column has-text-centered">{{ getPokemon.height }} m <br><span class="tag">Height</span></div> -->
+                      </div>
+                    </div>
+                  </div>
+                </pokemon-card>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <label for="pokeName">Buscar Pokémon por nombre o número</label>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+                <input type="text" name="" value="" id="name" class="input_name">
+            </div>
+            <div class="col-4">
+              <button type="button" name="button" class="button_buscar" v-on:click="getPokemon()">Buscar</button>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+              <button type="button" name="button2" id="myBtn" :class="modal" :class="theme">Ver más</button>
+            </div>
+          </div>
+        </div>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+          <div class="modal-content">
+            <button type="button" class="close" name="button3">&times</button>
+            <div class="id" :class="theme">
+              <p>ID: {{id}}</p>
+            </div>
+            <!--<button type="button" class="close" v-on:click="closePokemon()" name="close_button">&times;</button>-->
+            <div class="top_modal modal_image" :class="theme">
+              <img v-bind:src="picture" alt="profile" class="img_d" id="pokeImg">
+            </div>
+            <div class="bottom_modal">
+              <div class="title_modal">{{pokeNamee}}</div>
+              <div class="meter nostripes" :class="theme">
+              </div>
+              <div class="hp2">{{hp}}</div>
+              <div class="row ban">
+                <div class="col-4 ">{{tipo}}<br><span class="span_t" :class="theme">Tipo</span></div>
+                <div class="col-4 center-column">{{peso}}<br><span class="span_t" :class="theme">Peso</span></div>
+                <div class="col-4">{{altura}}<br><span class="span_t" :class="theme">Altura</span></div>
+                <div class="col-4 ">{{ataque}}<br><span class="span_t" :class="theme">Ataque</span></div>
+                <div class="col-4 center-column">{{defensa}}<br><span class="span_t" :class="theme">Defensa</span></div>
+                <div class="col-4">{{velocidad}}<br><span class="span_t" :class="theme">Velocidad</span></div>
+                <div class="col-4 divisor">{{habilidad}}<br><span>Habilidad 1</span></div>
+                <div class="col-4 center-column"></div>
+                <div class="col-4 divisor">{{habilidad2}}<br><span>Habilidad 2</span></div>
+                <div class="col-12 divisor"><span>Movimientos:</span></div>
+                <div class="col-3 divisor">{{mov1}}</div>
+                <div class="col-3 divisor">{{mov2}}</div>
+                <div class="col-3 divisor">{{mov3}}</div>
+                <div class="col-3 divisor">{{mov4}}</div>
+
+
+                <!-- <div class="column has-text-centered">{{ getPokemon.type }}<br><span class="tag">Type</span></div> -->
+                <!-- <div class="column has-text-centered center-column">{{ getPokemon.weight }} lbs<br><span class="tag">Weight</span></div> -->
+                <!-- <div class="column has-text-centered">{{ getPokemon.height }} m <br><span class="tag">Height</span></div> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="./app.js"></script>
+        <script src="./script.js"></script>
+    </body>
+
+</html>
